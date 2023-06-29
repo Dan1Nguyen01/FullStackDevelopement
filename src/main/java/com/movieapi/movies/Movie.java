@@ -11,9 +11,10 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 
 @Document(collection = "movies")
+//comes from lombok
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Movie {
     @Id
     private ObjectId id;
@@ -24,8 +25,10 @@ public class Movie {
 
     private String poster;
     private List<String> genres;
-    private List<String>backdrops;
+    private List<String> backdrop;
     @DocumentReference
-    private List<Review> reviewIds;
+    //the database only store the ids of the view and in a seperated collection
+    private List <Review> reviewIds;
+
 
 }
